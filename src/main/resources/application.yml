@@ -12,14 +12,6 @@ spring:
           predicates:
             - Query=url,qq
 
-        - id: product_route
-          uri: lb://ws-product
-          predicates:
-            - Path=/api/product/**
-          filters:
-             #           路径重写，表示去除路径内的api
-            - RewritePath=/api/(?<segment>.*),/$\{segment}
-
         - id: admin_route
           uri: lb://renren-fast
           predicates:
